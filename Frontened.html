@@ -1,0 +1,362 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Hybrutos Racing
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+    }
+    .orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+    /* Animated background: moving racing stripes */
+    .racing-stripes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-around;
+      pointer-events: none;
+    }
+    .stripe {
+      width: 20vw;
+      height: 200vh;
+      background: linear-gradient(
+        45deg,
+        #e10600 25%,
+        transparent 25%,
+        transparent 50%,
+        #e10600 50%,
+        #e10600 75%,
+        transparent 75%,
+        transparent
+      );
+      background-size: 40px 40px;
+      animation: slideDown 6s linear infinite;
+      opacity: 0.15;
+      transform: rotate(20deg);
+      filter: drop-shadow(0 0 5px #e10600);
+    }
+    .stripe:nth-child(2) {
+      animation-delay: 2s;
+      opacity: 0.1;
+      filter: drop-shadow(0 0 3px #ff3b3b);
+    }
+    .stripe:nth-child(3) {
+      animation-delay: 4s;
+      opacity: 0.12;
+      filter: drop-shadow(0 0 4px #cc0000);
+    }
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-100%) rotate(20deg);
+      }
+      100% {
+        transform: translateY(100%) rotate(20deg);
+      }
+    }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-white min-h-screen flex flex-col">
+  <div aria-hidden="true" class="racing-stripes">
+   <div class="stripe">
+   </div>
+   <div class="stripe">
+   </div>
+   <div class="stripe">
+   </div>
+  </div>
+  <header class="w-full bg-black bg-opacity-70 backdrop-blur-md shadow-md sticky top-0 z-30">
+   <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a class="text-3xl orbitron font-bold text-red-600 flex items-center space-x-2" href="#">
+     <i class="fas fa-flag-checkered">
+     </i>
+     <span>
+      Hybrutos Racing
+     </span>
+    </a>
+    <ul class="hidden md:flex space-x-8 text-lg font-medium">
+     <li>
+      <a class="hover:text-red-600 transition" href="#home">
+       Home
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition" href="#about">
+       About
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition" href="#news">
+       News
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition" href="#gallery">
+       Gallery
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition" href="#contact">
+       Contact
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition flex items-center" href="#login">
+       <i class="fas fa-sign-in-alt mr-1">
+       </i>
+       Login
+      </a>
+     </li>
+    </ul>
+    <button class="md:hidden text-red-600 focus:outline-none" id="mobile-menu-button">
+     <i class="fas fa-bars fa-2x">
+     </i>
+    </button>
+   </nav>
+   <div class="hidden md:hidden bg-black bg-opacity-90 backdrop-blur-md px-6 py-4 space-y-4 text-center text-lg font-medium" id="mobile-menu">
+    <a class="block hover:text-red-600 transition" href="#home">
+     Home
+    </a>
+    <a class="block hover:text-red-600 transition" href="#about">
+     About
+    </a>
+    <a class="block hover:text-red-600 transition" href="#news">
+     News
+    </a>
+    <a class="block hover:text-red-600 transition" href="#gallery">
+     Gallery
+    </a>
+    <a class="block hover:text-red-600 transition" href="#contact">
+     Contact
+    </a>
+    <a class="block hover:text-red-600 transition flex justify-center items-center" href="#login">
+     <i class="fas fa-sign-in-alt mr-1">
+     </i>
+     Login
+    </a>
+   </div>
+  </header>
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-12 space-y-20">
+   <section class="text-center space-y-6" id="home">
+    <h1 class="text-5xl md:text-6xl font-extrabold orbitron text-red-600 drop-shadow-lg">
+     Welcome to Hybrutos Racing
+    </h1>
+    <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
+     Join the ultimate community for Formula 1 car enthusiasts. Stay updated with the latest news, events, and exclusive content.
+    </p>
+    <a class="inline-block mt-6 px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold text-white shadow-lg transition" href="#login">
+     Get Started
+    </a>
+   </section>
+   <section class="max-w-4xl mx-auto space-y-8" id="about">
+    <h2 class="text-4xl font-bold orbitron text-red-600 border-b-4 border-red-600 inline-block pb-2">
+     About Us
+    </h2>
+    <p class="text-gray-300 text-lg leading-relaxed">
+     Hybrutos Racing is a passionate community dedicated to everything Formula 1. From the history of the sport to the latest races, we bring fans together to share their love for speed, technology, and competition.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg hover:shadow-red-600 transition">
+      <i class="fas fa-trophy text-red-600 text-4xl mb-4">
+      </i>
+      <h3 class="text-xl font-semibold mb-2">
+       Exclusive Events
+      </h3>
+      <p class="text-gray-300">
+       Attend meetups, watch parties, and track days with fellow members.
+      </p>
+     </div>
+     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg hover:shadow-red-600 transition">
+      <i class="fas fa-car-side text-red-600 text-4xl mb-4">
+      </i>
+      <h3 class="text-xl font-semibold mb-2">
+       Car Showcases
+      </h3>
+      <p class="text-gray-300">
+       Explore detailed showcases of iconic F1 cars and their engineering marvels.
+      </p>
+     </div>
+     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg hover:shadow-red-600 transition">
+      <i class="fas fa-users text-red-600 text-4xl mb-4">
+      </i>
+      <h3 class="text-xl font-semibold mb-2">
+       Community
+      </h3>
+      <p class="text-gray-300">
+       Connect with fans worldwide and share your passion for Formula 1.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="max-w-6xl mx-auto space-y-12" id="news">
+    <h2 class="text-4xl font-bold orbitron text-red-600 border-b-4 border-red-600 inline-block pb-2">
+     Latest News
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+     <article class="bg-black bg-opacity-50 rounded-lg overflow-hidden shadow-lg hover:shadow-red-600 transition flex flex-col">
+      <img alt="Dynamic image of a red Formula 1 car speeding on a sunny race track with blurred background" class="w-full h-48 object-cover" height="350" src="https://storage.googleapis.com/a1aa/image/b78face0-ed3d-41c3-5839-17a658705d3a.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h3 class="text-xl font-semibold mb-2">
+        Verstappen Dominates Monaco GP
+       </h3>
+       <p class="text-gray-300 flex-grow">
+        Max Verstappen showcased an incredible performance to take the checkered flag in Monaco, thrilling fans worldwide.
+       </p>
+       <time class="mt-4 text-sm text-red-400" datetime="2024-06-10">
+        June 10, 2024
+       </time>
+      </div>
+     </article>
+     <article class="bg-black bg-opacity-50 rounded-lg overflow-hidden shadow-lg hover:shadow-red-600 transition flex flex-col">
+      <img alt="Close-up image of a Formula 1 car's advanced aerodynamic wing and suspension system in a garage" class="w-full h-48 object-cover" height="350" src="https://storage.googleapis.com/a1aa/image/b06f85f6-dd23-4b4f-d8b0-572a110ea0d3.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h3 class="text-xl font-semibold mb-2">
+        New Aero Package Revealed
+       </h3>
+       <p class="text-gray-300 flex-grow">
+        Teams unveil cutting-edge aerodynamic upgrades ahead of the upcoming race, promising faster lap times.
+       </p>
+       <time class="mt-4 text-sm text-red-400" datetime="2024-06-08">
+        June 8, 2024
+       </time>
+      </div>
+     </article>
+     <article class="bg-black bg-opacity-50 rounded-lg overflow-hidden shadow-lg hover:shadow-red-600 transition flex flex-col">
+      <img alt="Portrait image of a Formula 1 driver in racing suit smiling during a post-race interview with microphones" class="w-full h-48 object-cover" height="350" src="https://storage.googleapis.com/a1aa/image/954e844b-633d-428d-da7f-f341a93553b0.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h3 class="text-xl font-semibold mb-2">
+        Exclusive Interview with Lewis Hamilton
+       </h3>
+       <p class="text-gray-300 flex-grow">
+        Lewis Hamilton shares insights on his training regimen and goals for the rest of the season.
+       </p>
+       <time class="mt-4 text-sm text-red-400" datetime="2024-06-05">
+        June 5, 2024
+       </time>
+      </div>
+     </article>
+    </div>
+   </section>
+   <section class="max-w-7xl mx-auto space-y-8" id="gallery">
+    <h2 class="text-4xl font-bold orbitron text-red-600 border-b-4 border-red-600 inline-block pb-2">
+     Gallery
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+     <img alt="Side view of a sleek red Formula 1 car racing on a sunny track with grandstands in the background" class="rounded-lg shadow-lg hover:scale-105 transition-transform cursor-pointer" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e1b20dfd-bf23-40c8-83a6-cce0b3bd7cdc.jpg" width="400"/>
+     <img alt="Pit crew changing tires on a Formula 1 car during a fast-paced pit stop under bright lights" class="rounded-lg shadow-lg hover:scale-105 transition-transform cursor-pointer" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/81902224-ee3c-4520-6efd-3543720df06d.jpg" width="400"/>
+     <img alt="Close-up image of a Formula 1 car's front wing and tire with detailed sponsor logos" class="rounded-lg shadow-lg hover:scale-105 transition-transform cursor-pointer" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/dca443e0-d7c0-4c6f-0f75-8bf32e4c4c7f.jpg" width="400"/>
+     <img alt="Formula 1 drivers celebrating on the podium with champagne sprays and trophies" class="rounded-lg shadow-lg hover:scale-105 transition-transform cursor-pointer" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/fecbf8b2-c16b-47cd-4842-a0ae2fc78f73.jpg" width="400"/>
+    </div>
+   </section>
+   <section class="max-w-3xl mx-auto space-y-8" id="contact">
+    <h2 class="text-4xl font-bold orbitron text-red-600 border-b-4 border-red-600 inline-block pb-2">
+     Contact Us
+    </h2>
+    <form action="#" class="bg-black bg-opacity-50 rounded-lg p-8 shadow-lg space-y-6" method="POST" novalidate="">
+     <div>
+      <label class="block mb-2 font-semibold text-gray-300" for="name">
+       Name
+      </label>
+      <input class="w-full rounded-md px-4 py-2 bg-gray-800 text-white border border-gray-700 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block mb-2 font-semibold text-gray-300" for="email">
+       Email
+      </label>
+      <input class="w-full rounded-md px-4 py-2 bg-gray-800 text-white border border-gray-700 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+     </div>
+     <div>
+      <label class="block mb-2 font-semibold text-gray-300" for="message">
+       Message
+      </label>
+      <textarea class="w-full rounded-md px-4 py-2 bg-gray-800 text-white border border-gray-700 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none" id="message" name="message" placeholder="Write your message here..." required="" rows="4"></textarea>
+     </div>
+     <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-full shadow-lg transition" type="submit">
+      Send Message
+     </button>
+    </form>
+   </section>
+   <section class="max-w-md mx-auto bg-black bg-opacity-70 rounded-lg p-10 shadow-lg space-y-8" id="login">
+    <h2 class="text-3xl font-bold orbitron text-red-600 text-center">
+     Member Login
+    </h2>
+    <form action="#" class="space-y-6" method="POST" novalidate="">
+     <div>
+      <label class="block mb-2 font-semibold text-gray-300" for="username">
+       Username
+      </label>
+      <input class="w-full rounded-md px-4 py-3 bg-gray-800 text-white border border-gray-700 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none" id="username" name="username" placeholder="Enter your username" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block mb-2 font-semibold text-gray-300" for="password">
+       Password
+      </label>
+      <input class="w-full rounded-md px-4 py-3 bg-gray-800 text-white border border-gray-700 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+     </div>
+     <div class="flex items-center justify-between text-sm text-gray-400">
+      <label class="flex items-center space-x-2">
+       <input class="rounded text-red-600 focus:ring-red-600" name="remember" type="checkbox"/>
+       <span>
+        Remember me
+       </span>
+      </label>
+      <a class="hover:text-red-600 transition" href="#forgot">
+       Forgot password?
+      </a>
+     </div>
+     <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-full shadow-lg transition" type="submit">
+      Log In
+     </button>
+    </form>
+    <p class="text-center text-gray-400">
+     Not a member?
+     <a class="text-red-600 hover:underline" href="#signup">
+      Sign up now
+     </a>
+    </p>
+   </section>
+  </main>
+  <footer class="bg-black bg-opacity-80 text-gray-400 text-center py-6 mt-20">
+   <p>
+    © 2024 Hybrutos Racing. All rights reserved.
+   </p>
+   <div class="mt-3 space-x-6 text-red-600 text-xl">
+    <a aria-label="Twitter" href="https://twitter.com" rel="noopener noreferrer" target="_blank">
+     <i class="fab fa-twitter">
+     </i>
+    </a>
+    <a aria-label="Facebook" href="https://facebook.com" rel="noopener noreferrer" target="_blank">
+     <i class="fab fa-facebook-f">
+     </i>
+    </a>
+    <a aria-label="Instagram" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+     <i class="fab fa-instagram">
+     </i>
+    </a>
+   </div>
+  </footer>
+  <script>
+   const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+ </body>
+</html>
